@@ -52,7 +52,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 
 "在vim的normal模式下搜索文件
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+
 "Powerline状态栏
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -65,6 +68,9 @@ Plugin 'Yggdroot/indentLine'
 
 "python 代码格式化
 Plugin 'tell-k/vim-autopep8'
+
+"git
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -202,3 +208,17 @@ nnoremap <leader>gt :YcmCompleter GetType<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nmap <leader>yfw <Plug>(YCMFindSymbolInWorkspace)
 nmap <leader>yfd <Plug>(YCMFindSymbolInDocument)
+
+" ctrlp
+let g:ctrlp_by_filename = 0
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:100'
+let g:ctrlp_user_command = 'find %s -type f'
+
+" ctrlp-funky
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+let g:ctrlp_funky_syntax_highlight = 1
+
+let g:ctrlp_extensions = ['funky']
+
